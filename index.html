@@ -1,11 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>Hello</p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+{% endblock %}
+
+{% block body %}
+<div>
+  <form action="/history/">
+    <input class="history" type="submit" value="View History">
+  </form>
+</div>
+<form method="post" action="/">
+  <div class="search-bar">
+    <h1>Search Wikipedia and Citizendium</h1>
+    <input class="text-bar" name="key_word" placeholder="Enter a topic...">
+  </div>
+  
+  <div class="submit">
+    <input class="submit-button" type="submit" value="Search">
+  </div>
+</form>
+
+{% if wiki_result %}
+  <div class="wiki-div">
+    <h1 class="head"><img class="wiki-img" src="/static/images/wikipedia.png">Wikipedia</h1>
+    {% if wiki_disambiguated %}
+      <p>There are multiple results for {{key_word}}. Try searching for:</p>
+      <hr>
+    {% endif %}
+    {% for i in wiki_result %}
+      {% if i.startswith("\n") and i.endswith("\n") %}
+        <h2 class="disambiguation">{{ i }}</h2>
+      {% else %}
+        <p>{{ i }}</p>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% elif wiki_error %}
+  <div class="wiki-div">
+    <h1 class="head"><img class="wiki-img" src="/static/images/wikipedia.png">Wikipedia</h1>
+    <p class="error">{{ wiki_error }}</p>
+  </div>
+{% endif %}
+
+{% if citizen_result %}
+  <div class="citizendium-div">
+    <h1 class="head"><img class="citizendium-img" src="/static/images/citizendium.png">Citizendium</h1>
+    {% if citizen_disambiguated %}
+      <p>There are multiple results for {{key_word}}. Try searching for:</p>
+      <hr>
+    {% endif %}
+    {% for i in citizen_result %}
+      {% if i.startswith("\n") and i.endswith("\n") %}
+        <h2 class="disambiguation">{{ i }}</h2>
+      {% else %}
+        <p>{{ i }}</p>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% elif citizen_error %}
+  <div class="citizendium-div">
+    <h1 class="head"><img class="wiki-img" src="/static/images/citizendium.png">Citizendium</h1>
+    <p class="error">{{ citizen_error }}</p>
+  </div>
+{% endif %}
+
+{% endblock %}
