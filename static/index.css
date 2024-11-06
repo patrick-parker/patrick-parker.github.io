@@ -1,0 +1,166 @@
+h1 {
+  font-family: Arial;
+  font-size: 50px;
+  margin-left: 20px;
+}
+
+h2 {
+  font-family: Arial;
+  margin-left: 20px;
+}
+
+p {
+  margin-left: 20px;
+  font-size: 23px;
+  width: 1400px;
+  word-wrap: break-word;
+}
+
+hr {
+  width: 95%;
+}
+
+html {
+  background-color: rgb(37, 37, 37);
+  color: white;
+  font-family: Arial;
+}
+
+.head {
+  font-family: "Times New Roman";
+}
+
+.wiki-div,
+.citizendium-div {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border: solid;
+  border-width: 1px;
+  padding-left: 20px;
+  padding-left: 0;
+}
+
+.disambiguation {
+  font-size: 40px;
+  font-family: "Times New Roman";
+}
+
+.text-bar {
+  background-color: rgb(206, 206, 206);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: Arial;
+  border: none;
+  border-radius: 27px;
+  width: 455px;
+  text-align: center;
+  font-size: 20px;
+  transition: all 0.2s;
+}
+
+.text-bar:focus {
+  padding-left: 100px;
+  padding-right: 100px;
+  background-color: white;
+}
+
+.submit {
+  text-align: center;
+}
+
+.submit-button,
+.history {
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 20px;
+  font-family: Arial;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 40px;
+  background-color: rgb(46, 46, 245);
+  color: white;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.wiki-img {
+  width: 90px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 30px;
+}
+
+.submit {
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+
+.submit-button:hover,
+.history:hover {
+  padding-left: 45px;
+  padding-right: 45px;
+  background-color: rgb(16, 16, 225);
+}
+
+.submit-button:active,
+.history:active {
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: rgb(0, 0, 180);
+}
+
+.search-bar {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.citizendium-img {
+  width: 200px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 30px;
+}
+
+.history {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.history:hover {
+  margin-left: 0px;
+}
+
+.history:active {
+  margin-left: 15px;
+}
+
+.error {
+  color: red;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(17, 17, 17);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(46, 46, 245);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(16, 16, 225);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: rgb(0, 0, 180);
+}

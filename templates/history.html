@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='history.css') }}">
+{% endblock %}
+
+{% block body %}
+<div>ّ
+  {% if not empty %}
+    <table border="1">
+      <caption>Your Search History</caption>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Website</th>
+          <th>Key Word</th>
+          <th>Date</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in query %}
+          <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.website }}</td>
+            <td>{{ i.key_word }}</td>
+            <td>{{ i.date }}</td>
+            <td>{{ i.time }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <form action="/history/" method="post">
+      <input class="clear" type="submit" value="Clear History">
+    </form>
+  {% else %}
+    <h1>You haven't made any searches yet.</h1>
+  {% endif %}
+    <form action="/">
+    <input class="go-back" type="submit" value="Go Back">
+  </form>
+</div>
+{% endblock %}
